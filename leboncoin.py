@@ -28,7 +28,11 @@ class LeboncoinSpider(BaseSpider):
     # we could use CrawlSpider, but result is not digestable... better generating last X urls
     categories = ['ameublement','decoration']
     start_urls= []
+    # remove files
+
+
     for category in categories:
+        open(category+'.html', 'w').write('')
         for i in range(1,30):
             start_urls.append('http://www.leboncoin.fr/'+category+'/offres/nord_pas_de_calais/?o='+str(i))
 
