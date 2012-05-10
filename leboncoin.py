@@ -75,10 +75,13 @@ def printItem(item):
     #except IOError as e:
     #    # need to write header in file
     # we don't care in fact
-    html = '<div><div style="width:150px;height:250px;float:left;text-align:center">\
-    <img src="%s" alt="" /><br />\
-    <p><a href="%s">%s</a></p>\
-    </div></div>' % (''.join(item['photo']), ''.join(item['url']), ''.join(item['name']) )
+    html = '<div>\
+        <div style="width:auto;height:130px;float:left;margin:1px;">\
+            <a href="%s" alt="%s">\
+                <img src="%s" />\
+            </a>\
+        </div>\
+    </div>' % (''.join(item['url']), ''.join(item['name']), ''.join(item['photo']) )
     open(filename+'.html', 'a').write(html)
 
 
@@ -95,7 +98,7 @@ def main():
     items = []
 
     def catch_item(sender, item, **kwargs):
-        print "Got:", item
+        # print "Got:", item
         items.append(item)
         printItem(item)
 
@@ -121,6 +124,7 @@ def main():
     print "ENGINE STOPPED"
 
     #printHTML(items)
+
     
 
 if __name__ == '__main__':
