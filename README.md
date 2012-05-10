@@ -3,6 +3,11 @@ scrapy-lbc
 
 scrapper for leboncoin.fr
 
+New: all in one script
+======================
+
+python leboncoin.py
+it will create ameublement.html and decoration.html
 
 howto use ?
 ===========
