@@ -75,6 +75,10 @@ def printItem(item):
     #except IOError as e:
     #    # need to write header in file
     # we don't care in fact
+    keys = ['photo','url','name']
+    for key in keys:
+        if not key in item:
+            item[key] = ''
     html = '<div>\
         <div style="width:auto;height:130px;float:left;margin:1px;">\
             <a href="%s" alt="%s">\
@@ -95,12 +99,12 @@ def main():
     from scrapy import signals
     from scrapy.xlib.pydispatch import dispatcher
 
-    items = []
+    # items = []
 
     def catch_item(sender, item, **kwargs):
-        # print "Got:", item
-        items.append(item)
         printItem(item)
+        # print "Got:", item
+        # items.append(item)
 
     dispatcher.connect(catch_item, signal=signals.item_passed)
 
