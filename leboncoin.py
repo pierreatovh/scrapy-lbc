@@ -120,7 +120,7 @@ def main():
     crawler.start()
     print "ENGINE STOPPED"
 
-    printHTML(items)
+    #printHTML(items)
     
 
 if __name__ == '__main__':
