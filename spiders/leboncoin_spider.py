@@ -52,5 +52,5 @@ class LeBonCoinSpider(BaseSpider):
             items.append(item)
             #	put in filename
             filename = response.url.split("/")[-4]
-            open('/home/baqs/lbc/'+filename+'.html', 'a').write(html)
+            open('/tmp/lbc/'+filename+'.html', 'a').write(html)
         return items
