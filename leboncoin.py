@@ -60,8 +60,8 @@ class LeboncoinSpider(BaseSpider):
         for qxs in hxs.select('//div[@class="list-ads"]/a'):
             loader = XPathItemLoader(LeboncoinItem(), selector=qxs)
             loader.add_xpath('name'      ,  'div[@class="ad-lbc"]/div[@class="detail"]/div[@class="title"]/text()', re='^\s*([\w\s]+\w)\s*' )
-            loader.add_xpath('url'       ,  'div[@class="ad-lbc"]/div[@class="image"]/div[@class="image-and-nb"]/img/@src' )
-            loader.add_xpath('photo'     ,  '@href' )
+            loader.add_xpath('photo'     ,  'div[@class="ad-lbc"]/div[@class="image"]/div[@class="image-and-nb"]/img/@src' )
+            loader.add_xpath('url'       ,  '@href' )
             loader.add_value('category'  ,  response.url.split("/")[-4]  )
 
             yield loader.load_item()
